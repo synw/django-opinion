@@ -3,19 +3,19 @@
 {% load i18n %}
 
 {% block content %}
-<h1>{{poll.question}}</h1>
+<h1>{{ poll.question }}</h1>
 {% if poll.votable %}
 <form action="{% url 'polls:vote' poll.id %}" method="post">
     {% csrf_token %}
-    {% for choice in poll.choice_set.all %}
-    <label class="radio"><input type="radio" name="choice_pk" value="{{choice.id}}"> {{choice.choice}}</label>
+    {% for choice in poll.choices.all %}
+    <label class="radio"><input type="radio" name="choice_pk" value="{{ choice.id }}"> {{ choice.choice }}</label>
     {% endfor %}
     <input type="submit" class="btn btn-primary" value="{% trans "Vote" %}">
 </form>
 {% else %}
 <ul>
-{% for choice in poll.choice_set.all %}
-    <li>{{choice.choice}} - {{choice.count_votes}}</li>
+{% for choice in poll.choices.all %}
+    <li>{{ choice.choice }} - {{ choice.votes.count }}</li>
 {% endfor %}
 </ul>
 {% endif %}

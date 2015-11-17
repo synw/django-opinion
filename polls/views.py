@@ -2,7 +2,6 @@ from django.views.generic import DetailView, ListView, RedirectView
 from django.core.urlresolvers import reverse_lazy
 from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
-
 from polls.models import Choice, Poll, Vote
 
 
@@ -12,6 +11,10 @@ class PollListView(ListView):
 
 class PollDetailView(DetailView):
     model = Poll
+    
+    def get_queryset(self):
+        qs=Poll.objects.filter(id=self.kwargs['pk']).prefetch_related('choices__votes')
+        return qs
 
     def get_context_data(self, **kwargs):
         context = super(PollDetailView, self).get_context_data(**kwargs)
@@ -20,6 +23,7 @@ class PollDetailView(DetailView):
 
 
 class PollVoteView(RedirectView):
+    
     def post(self, request, *args, **kwargs):
         poll = Poll.objects.get(id=kwargs['pk'])
         user = request.user

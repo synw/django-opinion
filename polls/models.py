@@ -25,7 +25,7 @@ class Poll(models.Model):
 
 
 class Choice(models.Model):
-    poll = models.ForeignKey(Poll)
+    poll = models.ForeignKey(Poll, related_name='choices')
     choice = models.CharField(max_length=255)
 
     def count_votes(self):
@@ -41,7 +41,7 @@ class Choice(models.Model):
 class Vote(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
     poll = models.ForeignKey(Poll)
-    choice = models.ForeignKey(Choice)
+    choice = models.ForeignKey(Choice, related_name='votes')
 
     def __unicode__(self):
         return u'Vote for %s' % (self.choice)
