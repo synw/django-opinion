@@ -1,35 +1,34 @@
-from django.conf import settings
+# -*- coding: utf-8 -*-
+
 from django.db import models
+from django.contrib.auth.models import User
 from django.utils.encoding import python_2_unicode_compatible
 
 
 @python_2_unicode_compatible
 class Poll(models.Model):
-    question = models.CharField(max_length=255)
-    description = models.TextField(blank=True)
+    question = models.CharField(max_length=255, null=True)
+    description = models.TextField(null=True, blank=True)
 
     def count_choices(self):
-        return self.choice_set.count()
+        return self.choices.count()
 
     def count_total_votes(self):
         result = 0
-        for choice in self.choice_set.all():
+        for choice in self.choices.all():
             result += choice.count_votes()
         return result
-
-    def can_vote(self, user):
-        return not self.vote_set.filter(user=user).exists()
 
     def __str__(self):
         return self.question
 
 
 class Choice(models.Model):
-    poll = models.ForeignKey(Poll, related_name='choices')
-    choice = models.CharField(max_length=255)
+    poll = models.ForeignKey(Poll, null=True, related_name='choices')
+    choice = models.CharField(null=True, max_length=255)
 
     def count_votes(self):
-        return self.vote_set.count()
+        return self.votes.count()
 
     def __unicode__(self):
         return self.choice
@@ -39,9 +38,9 @@ class Choice(models.Model):
 
 
 class Vote(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL)
-    poll = models.ForeignKey(Poll)
-    choice = models.ForeignKey(Choice, related_name='votes')
+    user = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL, related_name='+')
+    poll = models.ForeignKey(Poll, null=True)
+    choice = models.ForeignKey(Choice, null=True, related_name='votes')
 
     def __unicode__(self):
         return u'Vote for %s' % (self.choice)
