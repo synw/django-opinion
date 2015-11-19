@@ -6,12 +6,20 @@ from django.utils.translation import ugettext_lazy as _
 from polls.models import Choice, Poll, Vote
 
 
+template_set=getattr(settings, 'POLLS_TEMPLATE_SET', 'basic')
+if not template_set=='basic':
+    POLLS_TEMPLATES_PATH=template_set+'/'
+else:
+    POLLS_TEMPLATES_PATH=''
+
 class PollListView(ListView):
     model = Poll
+    template_name='polls/'+POLLS_TEMPLATES_PATH+'poll_list.html'
 
 
 class PollDetailView(DetailView):
     model = Poll
+    template_name='polls/'+POLLS_TEMPLATES_PATH+'poll_detail.html'
     
     def get_queryset(self):
         qs=Poll.objects.filter(id=self.kwargs['pk'])
