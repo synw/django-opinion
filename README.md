@@ -34,3 +34,9 @@ Hook this app into your ``urls.py``:
         url(r'^polls/', include('polls.urls', namespace='polls')),
         ...
     )
+
+## Settings
+
+To use the bootstrap templates set add the setting:
+
+	POLLS_TEMPLATE_SET='bootstrap'
