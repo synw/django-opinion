@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-18 12:10+0000\n"
+"POT-Creation-Date: 2015-11-19 10:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,38 +18,63 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: templates/polls/poll_detail.html:10
-msgid "Has voted"
-msgstr "A voté"
+#: polls/models.py:15
+#, fuzzy
+#| msgid "Polls"
+msgid "Poll"
+msgstr "Sondages"
 
-#: templates/polls/poll_detail.html:36 templates/polls/poll_detail.html:63
-msgid "Vote"
-msgstr "Voter"
-
-#: templates/polls/poll_detail.html:37 templates/polls/poll_detail.html:71
-msgid "Back to polls list"
-msgstr "Retour à la liste des sondages"
-
-#: templates/polls/poll_detail.html:66
-msgid "To vote you must login"
-msgstr "Pour voter vous devez vous connecter"
-
-#: templates/polls/poll_detail.html:66
-msgid "Login"
-msgstr "Se connecter"
-
-#: templates/polls/poll_list.html:8
+#: polls/models.py:16 polls/templates/polls/bootstrap/poll_list.html:8
+#: polls/templates/polls/poll_list.html:6
 msgid "Polls"
 msgstr "Sondages"
 
-#: templates/polls/poll_list.html:19
+#: polls/models.py:43
+msgid "Choice"
+msgstr "Choix"
+
+#: polls/models.py:44
+msgid "Choices"
+msgstr "Choix"
+
+#: polls/models.py:57 polls/templates/polls/bootstrap/poll_detail.html:36
+#: polls/templates/polls/bootstrap/poll_detail.html:63
+#: polls/templates/polls/poll_detail.html:13
+msgid "Vote"
+msgstr "Voter"
+
+#: polls/models.py:58
+#, fuzzy
+#| msgid "Vote"
+msgid "Votes"
+msgstr "Voter"
+
+#: polls/templates/polls/bootstrap/poll_detail.html:10
+msgid "Has voted"
+msgstr "A voté"
+
+#: polls/templates/polls/bootstrap/poll_detail.html:37
+#: polls/templates/polls/bootstrap/poll_detail.html:71
+msgid "Back to polls list"
+msgstr "Retour à la liste des sondages"
+
+#: polls/templates/polls/bootstrap/poll_detail.html:66
+msgid "To vote you must login"
+msgstr "Pour voter vous devez vous connecter"
+
+#: polls/templates/polls/bootstrap/poll_detail.html:66
+msgid "Login"
+msgstr "Se connecter"
+
+#: polls/templates/polls/bootstrap/poll_list.html:20
+#: polls/templates/polls/poll_list.html:14
 msgid "There are no polls available."
 msgstr "Pas de sondages pour le moment"
 
-#: views.py:63
+#: polls/views.py:71
 msgid "Thanks for your vote."
 msgstr "Merci de votre vote"
 
-#: views.py:65
+#: polls/views.py:73
 msgid "You can not vote."
 msgstr "Vous ne pouvez pas voter"

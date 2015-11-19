@@ -3,12 +3,17 @@
 from django.conf import settings
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
+from django.utils.translation import ugettext_lazy as _
 
 
 @python_2_unicode_compatible
 class Poll(models.Model):
     question = models.CharField(max_length=255)
     description = models.TextField(blank=True)
+    
+    class Meta:
+        verbose_name=_('Poll')
+        verbose_name_plural = _('Polls')
 
     def count_choices(self):
         return self.choices.count()
@@ -35,6 +40,8 @@ class Choice(models.Model):
 
     class Meta:
         ordering = ['choice']
+        verbose_name=_('Choice')
+        verbose_name_plural = _('Choices')
 
 
 class Vote(models.Model):
@@ -47,3 +54,5 @@ class Vote(models.Model):
 
     class Meta:
         unique_together = (('user', 'poll'))
+        verbose_name=_('Vote')
+        verbose_name_plural = _('Votes')
