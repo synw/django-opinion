@@ -1,0 +1,55 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-18 12:10+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: templates/polls/poll_detail.html:10
+msgid "Has voted"
+msgstr "A voté"
+
+#: templates/polls/poll_detail.html:36 templates/polls/poll_detail.html:63
+msgid "Vote"
+msgstr "Voter"
+
+#: templates/polls/poll_detail.html:37 templates/polls/poll_detail.html:71
+msgid "Back to polls list"
+msgstr "Retour à la liste des sondages"
+
+#: templates/polls/poll_detail.html:66
+msgid "To vote you must login"
+msgstr "Pour voter vous devez vous connecter"
+
+#: templates/polls/poll_detail.html:66
+msgid "Login"
+msgstr "Se connecter"
+
+#: templates/polls/poll_list.html:8
+msgid "Polls"
+msgstr "Sondages"
+
+#: templates/polls/poll_list.html:19
+msgid "There are no polls available."
+msgstr "Pas de sondages pour le moment"
+
+#: views.py:63
+msgid "Thanks for your vote."
+msgstr "Merci de votre vote"
+
+#: views.py:65
+msgid "You can not vote."
+msgstr "Vous ne pouvez pas voter"
