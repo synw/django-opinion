@@ -5,10 +5,18 @@
 {% block content %}
 <div class="row" style="margin-bottom:1.5em;">
 	<div class="col-xs-12">
-		<h1>
-			{{ poll.question }} <span class="label label-success">{{ total_votes }} vote{% if total_votes != 1 %}s{% endif %}</span>
-			{% if has_voted %}<span class="label label-default"><i class="fa fa-check"></i>&nbsp;{% trans "Has voted" %}</span>{% endif %}
-		</h1>
+		<h2 class="text-center">
+			<div>{{ poll.question }}</div>
+			<br />
+			<div>
+				<span class="label label-success">{{ total_votes }} vote{% if total_votes != 1 %}s{% endif %}</span> 
+				{% if has_voted %}
+					<span class="label label-default">
+						<i class="fa fa-check"></i>&nbsp;{% trans "Has voted" %}
+					</span>
+				{% endif %}
+			</div>
+		</h2>
 	</div>
 </div>
 {% if poll.votable %}
