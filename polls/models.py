@@ -12,6 +12,7 @@ class Poll(models.Model):
     description = models.TextField(blank=True)
     
     class Meta:
+        ordering = ('question',)
         verbose_name=_('Poll')
         verbose_name_plural = _('Polls')
 
@@ -31,6 +32,7 @@ class Poll(models.Model):
 class Choice(models.Model):
     poll = models.ForeignKey(Poll, related_name='choices')
     choice = models.CharField(max_length=255)
+    order = models.PositiveSmallIntegerField(blank=True)
 
     def count_votes(self):
         return self.votes.count()
@@ -39,7 +41,7 @@ class Choice(models.Model):
         return self.choice
 
     class Meta:
-        ordering = ['choice']
+        ordering = ('order','choice')
         verbose_name=_('Choice')
         verbose_name_plural = _('Choices')
 
