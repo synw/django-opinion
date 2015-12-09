@@ -72,6 +72,7 @@ class PollDetailView(DetailView):
 
 
 class PollVoteView(RedirectView):
+    permanent = True
     
     def post(self, request, *args, **kwargs):
         poll = Poll.objects.get(id=kwargs['pk'])
