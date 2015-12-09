@@ -77,7 +77,7 @@ class PollVoteView(RedirectView):
         poll = Poll.objects.get(id=kwargs['pk'])
         user = request.user
         if not request.POST.has_key('choice_pk'):
-            messages.warning(request,'Merci de séléctionner une réponse pour votre vote')
+            messages.warning(request,_('Thank you to select an answer for your vote'))
             return redirect('polls:detail', pk=poll.pk)
         choice = Choice.objects.get(id=request.POST['choice_pk'])
         #~ control if user can vote

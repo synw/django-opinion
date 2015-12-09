@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-19 10:29+0000\n"
+"POT-Creation-Date: 2015-12-09 10:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,8 +37,8 @@ msgstr "Choix"
 msgid "Choices"
 msgstr "Choix"
 
-#: polls/models.py:57 polls/templates/polls/bootstrap/poll_detail.html:36
-#: polls/templates/polls/bootstrap/poll_detail.html:63
+#: polls/models.py:57 polls/templates/polls/bootstrap/poll_detail.html:44
+#: polls/templates/polls/bootstrap/poll_detail.html:71
 #: polls/templates/polls/poll_detail.html:13
 msgid "Vote"
 msgstr "Voter"
@@ -49,20 +49,20 @@ msgstr "Voter"
 msgid "Votes"
 msgstr "Voter"
 
-#: polls/templates/polls/bootstrap/poll_detail.html:10
+#: polls/templates/polls/bootstrap/poll_detail.html:15
 msgid "Has voted"
 msgstr "A voté"
 
-#: polls/templates/polls/bootstrap/poll_detail.html:37
-#: polls/templates/polls/bootstrap/poll_detail.html:71
+#: polls/templates/polls/bootstrap/poll_detail.html:45
+#: polls/templates/polls/bootstrap/poll_detail.html:79
 msgid "Back to polls list"
 msgstr "Retour à la liste des sondages"
 
-#: polls/templates/polls/bootstrap/poll_detail.html:66
+#: polls/templates/polls/bootstrap/poll_detail.html:74
 msgid "To vote you must login"
 msgstr "Pour voter vous devez vous connecter"
 
-#: polls/templates/polls/bootstrap/poll_detail.html:66
+#: polls/templates/polls/bootstrap/poll_detail.html:74
 msgid "Login"
 msgstr "Se connecter"
 
@@ -71,10 +71,16 @@ msgstr "Se connecter"
 msgid "There are no polls available."
 msgstr "Pas de sondages pour le moment"
 
-#: polls/views.py:71
+#: polls/views.py:80
+#, fuzzy
+#| msgid "Thanks for your vote."
+msgid "Thank you to select an answer for your vote"
+msgstr "Merci de sélectionner un réponse"
+
+#: polls/views.py:97
 msgid "Thanks for your vote."
 msgstr "Merci de votre vote"
 
-#: polls/views.py:73
+#: polls/views.py:99
 msgid "You can not vote."
 msgstr "Vous ne pouvez pas voter"
