@@ -35,8 +35,30 @@ Hook this app into your ``urls.py``:
         ...
     )
 
-## Settings
+## Settings and options
 
 To use the bootstrap templates set add the setting:
 
 	POLLS_TEMPLATE_SET='bootstrap'
+	
+To use a custom permission check function in order to know if the user can vote use this setting:
+
+	POLLS_CUSTOM_PERMS_MANAGER='app.module.function'
+
+Provide the path to your own function for an extra permissions check. This functions take request as argument and is supposed to return `True` or `False`
+
+Example:
+
+settings.py
+
+	POLLS_CUSTOM_PERMS_MANAGER='myapp.utils.profile_checker'
+
+This way polls app will use the function named profile_checker located in myapp directory in the file utils.py to manage extra permissions check.
+
+	def profile_checker(request, email_verification_required=True):
+	    profile=request.user.profile
+	    if email_verification_required:
+	        if not profile.email_is_verified:
+	            messages.warning(request, 'Your email must be verified to vote')
+	            return False
+	    return True
