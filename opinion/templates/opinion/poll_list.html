@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+<div class="row">
+	<div class="col-xs-12">
+		<h1>{% trans "Polls" %}</h1>
+		{% if polls %}
+			<div class="well">
+			    {% for poll in polls %}
+				<p>
+					<a href="{% url 'opinion:detail' poll.id %}">
+						<h3 class="list-group-item-heading">{{poll.question}}</h3>
+						{% if poll.description %}<p class="list-group-item-text">{{poll.description}}</p>{% endif %}
+					</a>
+				</p>
+			    {% endfor %}
+			</div>
+		{% else %}
+			{% trans "There are no polls available." %}
+		{% endif %}
+	</div>
+</div>
+{% endblock %}

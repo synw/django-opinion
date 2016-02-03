@@ -1,5 +1,0 @@
-include LICENSE
-include README.md
-recursive-include polls/locale *
-recursive-include polls/templates *.html
-exclude *.pyc

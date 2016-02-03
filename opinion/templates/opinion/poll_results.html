@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+{% include "opinion/poll_info_inline.html" %}
+
+<div class="row">
+	<div class="col-md-offset-2 col-md-8 col-md-offset-2">
+		<ul class="list-unstyled">                            		
+		{% for choice in choices %}
+		    <li>
+			    <p>{{ choice.choice }}</p>
+			    <div class="progress">
+			        <div class="progress-bar" style="width:{% widthratio choice.votes.count total_votes 100 as percentage %}{{ percentage }}%;">
+			            {{ percentage }}%
+			        </div>
+			    </div>
+		    </li>
+		{% endfor %}
+		</ul>
+		{% if not user.is_authenticated %}
+			<div class="text-center">
+				<p>
+					<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#login_vote">{% trans 'Vote' %}</button>
+				</p>
+				<p id="login_vote" class="collapse">
+					{% trans 'To vote you must login' %} <a href="{{ login_url }}" class="btn btn-warning">{% trans 'Login' %}</a>
+				</p>
+			</div>
+		{% endif %}
+		{% if can_vote %}
+			<p class="text-center" style="margin-top:2em;">
+				<a href="{% url 'opinion:vote' pk=poll.pk %}" class="btn btn-primary">{% trans "Vote" %}</a>
+			</p>
+		{% endif %}
+		<p class="text-center" style="margin-top:4em;">
+			<a href="{% url 'opinion:list' %}" class="btn btn-default">{% trans "Back to polls list" %}</a>
+		</p>
+	</div>
+</div>
+{% endblock %}

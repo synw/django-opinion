@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+{% include "opinion/poll_info_inline.html" %}
+
+<div class="row">
+	<div class="col-md-offset-2 col-md-8 col-md-offset-2">
+		<div class="form-group">
+			<div class="panel panel-default">
+				<form action="{% url 'opinion:vote' poll.id %}" method="post">
+				    {% csrf_token %}
+				    <div class="panel-body">
+					    {% for choice in choices %}
+					    	<div class="row">
+					    		<div class="col-xs-12">
+					    			<div class="radio">
+								    	<label>
+								    		<input type="radio" name="choice_pk" value="{{ choice.id }}"> {{ choice.choice }}
+								    	</label>
+								    </div>
+						    	</div>
+					    	</div>
+					    {% endfor %}
+					</div>
+				    <div class="panel-footer clearfix">
+						<div class="pull-right">
+						    <input type="submit" class="btn btn-primary" value="{% trans "Vote" %}">
+						    <a href="{% url 'opinion:list' %}" class="btn btn-default">{% trans "Back to polls list" %}</a>
+						    <a href="{% url 'opinion:results' pk=poll.pk %}" class="btn btn-default">{% trans "See results" %}</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -8,14 +8,14 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(
-    name='django-polls',
+    name='django-opinion',
     version=polls.__version__,
-    description='A simple polls app for django',
+    description='Polls application for Django',
     long_description=read('README.md'),
     license='MIT License',
-    author='noxan',
-    author_email='contact@byteweaver.net',
-    url='https://github.com/byteweaver/django-polls',
+    author='synwe',
+    author_email='',
+    url='https://github.com/synwe/django-opinion',
     packages=find_packages(),
     include_package_data=True,
     install_requires=[

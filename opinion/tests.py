@@ -1,7 +1,7 @@
 import sys
 from django.test import TestCase
 
-from polls.models import Poll
+from opinion.models import Poll
 
 
 class PollTests(TestCase):
