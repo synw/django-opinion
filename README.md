@@ -6,7 +6,7 @@ Polls application for Django.
 
 - Clone the repository:
 
-- Add `polls` to your `INSTALLED_APPS`:
+- Add `opinion` to your `INSTALLED_APPS`:
 
   ```python
 INSTALLED_APPS = (
