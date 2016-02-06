@@ -28,21 +28,27 @@ urlpatterns = patterns('',
   
 ## Settings and options
 
+### Customize templates
+
 To avoid using the default bootstrap templates set add the setting:
 
 	POLLS_TEMPLATE_SET='my_set'
 
-Then create a `templates/opinion/my_set` directory and start customizing the templates or copy the `basic` templates set for a starting base.
+Then create a `templates/opinion/my_set` directory and start customizing the templates.
+
+You can also just overide the templates in `templates/opinion` if you don't want to bother with some extra settings.
+
+### Custom vote permission check
 
 To use a custom permission check function in order to know if the user can vote use this setting:
 
 	POLLS_CUSTOM_PERMS_MANAGER='app.module.function'
 
-Provide the path to your own function for an extra permissions check. This functions take request as argument and is supposed to return `True` or `False`
+Provide the path to your own function for an extra permissions check. This function takes `request` as argument and is supposed to return `True` or `False`.
 
 Example:
 
-In settings.py :
+In `settings.py` :
 
 	POLLS_CUSTOM_PERMS_MANAGER='myapp.utils.profile_checker'
 
